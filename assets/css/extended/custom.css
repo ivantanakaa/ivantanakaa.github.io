@@ -13,9 +13,9 @@
   /* Warm palette */
   --color-bg: #fffdf8;
   --color-surface: #ffffff;
-  --color-primary: #c0392b;      /* deep red — appetite-stimulating */
+  --color-primary: #c0392b;
   --color-primary-soft: #e8554e;
-  --color-accent: #e67e22;       /* warm orange */
+  --color-accent: #e67e22;
   --color-text: #2c2c2c;
   --color-muted: #888;
   --color-border: #f0ebe2;
@@ -52,6 +52,15 @@ header.header {
   letter-spacing: -0.5px;
 }
 
+/* Site title icon — fork & knife */
+.logo a::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f2e7"; /* fa-utensils */
+  margin-right: 8px;
+  color: var(--color-primary);
+}
+
 nav#menu a {
   font-size: 0.9rem;
   font-weight: 500;
@@ -63,6 +72,32 @@ nav#menu a {
 nav#menu a:hover {
   background: var(--color-border);
   color: var(--color-primary);
+}
+
+/* Nav icons via ::before on specific menu links */
+nav#menu a[href="/posts/"]::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f02d"; /* fa-book-open */
+  margin-right: 6px;
+  font-size: 0.85em;
+}
+
+nav#menu a[href="/locations/"]::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f3c5"; /* fa-location-dot */
+  margin-right: 6px;
+  font-size: 0.85em;
+  color: var(--color-accent);
+}
+
+nav#menu a[href="/about/"]::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f007"; /* fa-user */
+  margin-right: 6px;
+  font-size: 0.85em;
 }
 
 /* --- Home info panel --- */
@@ -82,6 +117,15 @@ nav#menu a:hover {
   font-family: var(--font-heading);
   font-size: 1.8rem;
   color: var(--color-primary);
+}
+
+/* Icon before the home panel title */
+.home-info-content .entry-content h1::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f2e7"; /* fa-utensils */
+  margin-right: 10px;
+  color: var(--color-accent);
 }
 
 /* --- Post cards --- */
@@ -147,15 +191,44 @@ nav#menu a:hover {
   color: #fff;
 }
 
-/* Location tags get a slightly different color */
-.post-tags a[href*="/locations/"] {
+/* Location tags — orange with pin icon */
+.post-tags a[href*="/locations/"],
+.terms-tags a[href*="/locations/"] {
   background: #fff3e8;
   color: var(--color-accent);
   border-color: #f5d9b8;
 }
-.post-tags a[href*="/locations/"]:hover {
+.post-tags a[href*="/locations/"]:hover,
+.terms-tags a[href*="/locations/"]:hover {
   background: var(--color-accent);
   color: #fff;
+}
+.post-tags a[href*="/locations/"]::before,
+.terms-tags a[href*="/locations/"]::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f3c5"; /* fa-location-dot */
+  margin-right: 5px;
+  font-size: 0.75em;
+}
+
+/* Regular tags get a tag icon */
+.post-tags a:not([href*="/locations/"])::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f02b"; /* fa-tag */
+  margin-right: 5px;
+  font-size: 0.75em;
+}
+
+/* --- Reading time & meta icons --- */
+.post-meta span::before,
+.meta-item::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 400;
+  margin-right: 4px;
+  font-size: 0.85em;
+  color: var(--color-muted);
 }
 
 /* --- Single post page --- */
@@ -231,7 +304,6 @@ footer.footer {
   .home-info-content .entry-content h1 {
     font-size: 1.4rem;
   }
-  /* Bigger tap targets for tags on mobile */
   .post-tags a,
   .terms-tags a {
     padding: 5px 14px;

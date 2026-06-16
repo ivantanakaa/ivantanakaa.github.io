@@ -20,7 +20,7 @@ theme = "PaperMod"
   cover.responsiveImages = true
 
 [params.homeInfoParams]
-  Title = "🍽️ Tanaka's Table"
+  Title = "Tanaka's Table"
   Content = "A gourmet that make a smile. Find your next favorite meal."
 
 [[params.socialIcons]]
@@ -43,7 +43,7 @@ theme = "PaperMod"
     weight = 10
   [[menu.main]]
     identifier = "locations"
-    name = "📍 By Location"
+    name = "By Location"
     url = "/locations/"
     weight = 20
   [[menu.main]]
