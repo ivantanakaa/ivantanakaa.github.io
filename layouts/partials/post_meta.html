@@ -1,0 +1,32 @@
+{{- $scratch := newScratch }}
+
+{{- if not .Date.IsZero -}}
+<span class="post-meta-date">
+  <i class="fa-regular fa-calendar"></i>
+  {{- (.Date).Format "Jan 2, 2006" -}}
+</span>
+{{- end }}
+
+{{- with .Params.rating -}}
+  {{- $score := int . -}}
+  {{- $labels := dict
+    1 "Not recommended"
+    2 "Once in a while"
+    3 "Worth trying"
+    4 "Approved & loved"
+  -}}
+  {{- $label := index $labels $score -}}
+  <span class="post-meta-rating" title="{{ $label }}">
+    {{- range seq 4 -}}
+      <span class="dot{{ if le . $score }} filled{{ end }}"></span>
+    {{- end -}}
+    <span class="rating-label-inline">{{ $label }}</span>
+  </span>
+{{- end }}
+
+{{- if (.Param "ShowReadingTime") -}}
+<span class="post-meta-read">
+  <i class="fa-regular fa-clock"></i>
+  {{ .ReadingTime }}{{ T "minute_read" }}
+</span>
+{{- end -}}

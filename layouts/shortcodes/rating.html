@@ -1,0 +1,16 @@
+{{- $score := int (.Get 0) -}}
+{{- $labels := dict
+  1 "Not recommended"
+  2 "Once in a while"
+  3 "Worth trying"
+  4 "Approved & loved"
+-}}
+{{- $label := index $labels $score -}}
+<div class="tanaka-rating" data-score="{{ $score }}">
+  <div class="rating-dots">
+    {{- range seq 4 -}}
+      <span class="dot{{ if le . $score }} filled{{ end }}"></span>
+    {{- end -}}
+  </div>
+  <span class="rating-label">{{ $label }}</span>
+</div>

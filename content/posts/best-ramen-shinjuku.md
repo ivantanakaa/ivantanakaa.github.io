@@ -4,6 +4,7 @@ date: 2026-06-15T19:00:00+09:00
 draft: false
 tags: ["ramen", "noodles", "late-night"]
 locations: ["Tokyo", "Shinjuku"]
+rating: 4
 description: "A tiny shop, a long queue, and a bowl that was absolutely worth it."
 ---
 
@@ -26,6 +27,8 @@ I asked for a second serving of noodles (*kaedama*). The cook nodded without loo
 - **Best for:** Late nights when you need something serious
 
 ## Would I go back?
+
+{{< rating 4 >}}
 
 Without question.
 

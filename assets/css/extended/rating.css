@@ -1,0 +1,79 @@
+/* ── Rating component ───────────────────────────────────────── */
+
+/* Inline rating in post meta / cards */
+.post-meta-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  vertical-align: middle;
+}
+
+.post-meta-rating .dot,
+.tanaka-rating .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-faint);
+  background: transparent;
+  transition: background 0.15s;
+}
+
+.post-meta-rating .dot.filled,
+.tanaka-rating .dot.filled {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+/* score-specific tints */
+[data-score="1"] .dot.filled { background: #c0b0a0; border-color: #c0b0a0; }
+[data-score="2"] .dot.filled { background: var(--miso); border-color: var(--miso); }
+[data-score="3"] .dot.filled { background: #d4901a; border-color: #d4901a; }
+[data-score="4"] .dot.filled { background: var(--orange); border-color: var(--orange); }
+
+.rating-label-inline {
+  font-size: 0.68rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Block rating shortcode (used inside post body) */
+.tanaka-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #fdf8f2;
+  border: 1px solid var(--sand);
+  border-left: 3px solid var(--orange);
+  border-radius: 6px;
+  padding: 10px 16px;
+  margin: 1.5rem 0;
+}
+
+[data-score="1"] { border-left-color: #c0b0a0; }
+[data-score="2"] { border-left-color: var(--miso); }
+[data-score="3"] { border-left-color: #d4901a; }
+[data-score="4"] { border-left-color: var(--orange); }
+
+.tanaka-rating .rating-dots {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.tanaka-rating .dot {
+  width: 11px;
+  height: 11px;
+}
+
+.tanaka-rating .rating-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
