@@ -1,316 +1,446 @@
 /* ============================================================
-   Tanaka's Table — Custom Styles
-   Warm, food-blog feel, mobile-first
+   Tanaka's Diary — Casual Modern Minimalist
    ============================================================ */
 
-/* --- Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
 
+/* ── Variables ─────────────────────────────────────────────── */
 :root {
-  --font-heading: 'Playfair Display', Georgia, serif;
-  --font-body: 'Lato', system-ui, sans-serif;
-
-  /* Warm palette */
-  --color-bg: #fffdf8;
-  --color-surface: #ffffff;
-  --color-primary: #c0392b;
-  --color-primary-soft: #e8554e;
-  --color-accent: #e67e22;
-  --color-text: #2c2c2c;
-  --color-muted: #888;
-  --color-border: #f0ebe2;
-  --radius: 12px;
-  --shadow: 0 2px 16px rgba(0,0,0,0.07);
-  --shadow-hover: 0 6px 28px rgba(0,0,0,0.13);
+  --bg:        #f7f6f3;
+  --surface:   #ffffff;
+  --ink:       #1a1a1a;
+  --ink-soft:  #666;
+  --ink-faint: #aaa;
+  --red:       #c0392b;
+  --sand:      #e8e0d4;
+  --sand-dark: #d4c9b8;
+  --accent:    #1a1a1a;   /* dark accent for chips */
+  --loc:       #c0392b;   /* location red */
+  --radius:    10px;
+  --max-w:     680px;
 }
 
-/* --- Base --- */
+/* ── Reset & Base ───────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
-  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-weight: 300;
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- Header / Nav --- */
+a { color: inherit; text-decoration: none; }
+
+/* ── Layout container ───────────────────────────────────────── */
+.main { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+
+/* ── Header ─────────────────────────────────────────────────── */
 header.header {
-  background: var(--color-surface);
-  border-bottom: 2px solid var(--color-border);
-  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  background: var(--bg);
+  border-bottom: 1px solid var(--sand);
   position: sticky;
   top: 0;
   z-index: 100;
+  backdrop-filter: blur(8px);
 }
 
-.logo a,
-.logo span {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  color: var(--color-primary);
-  letter-spacing: -0.5px;
+header.header .header-content,
+header.header > div {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 56px;
 }
 
-/* Site title icon — open book / diary */
+/* Logo */
+.logo a {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.2rem;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .logo a::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f518"; /* fa-book-open */
-  margin-right: 8px;
-  color: var(--color-primary);
+  content: "\f518";
+  font-size: 1rem;
+  color: var(--red);
+}
+
+/* Nav */
+nav#menu {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 nav#menu a {
-  font-size: 0.9rem;
+  font-size: 0.82rem;
   font-weight: 500;
-  color: var(--color-text);
-  padding: 6px 10px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding: 5px 10px;
   border-radius: 6px;
-  transition: background 0.15s, color 0.15s;
+  transition: color 0.15s, background 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 nav#menu a:hover {
-  background: var(--color-border);
-  color: var(--color-primary);
+  color: var(--ink);
+  background: var(--sand);
 }
 
-/* Nav icons via ::before on specific menu links */
 nav#menu a[href="/posts/"]::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f02d"; /* fa-book-open */
-  margin-right: 6px;
-  font-size: 0.85em;
+  content: "\f02d";
+  font-size: 0.78em;
 }
-
 nav#menu a[href="/locations/"]::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f3c5"; /* fa-location-dot */
-  margin-right: 6px;
-  font-size: 0.85em;
-  color: var(--color-accent);
+  content: "\f3c5";
+  font-size: 0.78em;
+  color: var(--red);
 }
-
 nav#menu a[href="/about/"]::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f007"; /* fa-user */
-  margin-right: 6px;
-  font-size: 0.85em;
+  content: "\f007";
+  font-size: 0.78em;
 }
 
-/* --- Home info panel --- */
+/* ── Hero / Home panel ──────────────────────────────────────── */
 .home-info-content {
-  background: linear-gradient(135deg, #fff5f0 0%, #fff9f0 100%);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius);
-  padding: 2rem 1.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.home-info-content .entry-content h1,
-.home-info-content .entry-content p {
-  margin: 0.25rem 0;
-}
-.home-info-content .entry-content h1 {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  color: var(--color-primary);
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--sand);
+  margin-bottom: 3rem;
 }
 
-/* Icon before the home panel title */
+.home-info-content .entry-content h1 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 3.2rem);
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0 0 0.6rem;
+  letter-spacing: -1px;
+}
+
 .home-info-content .entry-content h1::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f518"; /* fa-book-open */
-  margin-right: 10px;
-  color: var(--color-accent);
+  content: "\f518";
+  margin-right: 12px;
+  font-size: 0.7em;
+  color: var(--red);
+  vertical-align: middle;
 }
 
-/* --- Post cards --- */
+.home-info-content .entry-content p {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin: 0;
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* ── Post list ──────────────────────────────────────────────── */
+
+/* Section header above list */
+.posts-list-header {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sand);
+}
+
 .post-entry {
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  overflow: hidden;
-  margin-bottom: 1.25rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid var(--sand);
+  border-radius: 0;
+  padding: 1.6rem 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  transition: background 0.15s;
 }
 .post-entry:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+}
+.post-entry:hover .entry-header h2 {
+  color: var(--red);
 }
 
-/* Cover image */
-.post-entry .entry-cover img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
+/* Date as tiny label */
+.entry-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.entry-header h2 {
-  font-family: var(--font-heading);
+.post-entry .entry-header h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
   font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin: 0;
   line-height: 1.3;
-  color: var(--color-text);
-  margin: 0 0 0.25rem;
+  transition: color 0.15s;
 }
 
 .entry-content {
-  color: var(--color-muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  font-weight: 300;
+  margin-top: 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .entry-footer {
-  font-size: 0.8rem;
-  color: var(--color-muted);
-  margin-top: 0.5rem;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
 }
 
-/* --- Tags & Location chips --- */
+/* Post meta (date, read time) */
+.post-meta,
+.entry-footer .post-meta {
+  font-size: 0.75rem;
+  color: var(--ink-faint);
+  font-weight: 400;
+}
+
+/* ── Tags & Location chips ──────────────────────────────────── */
 .post-tags a,
 .terms-tags a {
-  display: inline-block;
-  background: #fdf0ee;
-  color: var(--color-primary);
-  border: 1px solid #f5cec8;
-  border-radius: 20px;
-  padding: 3px 12px;
-  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  color: var(--ink-soft);
+  border: 1px solid var(--sand-dark);
+  border-radius: 4px;
+  padding: 2px 9px;
+  font-size: 0.72rem;
   font-weight: 500;
-  margin: 3px 3px 0 0;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: background 0.15s, color 0.15s;
+  transition: all 0.15s;
 }
 .post-tags a:hover,
 .terms-tags a:hover {
-  background: var(--color-primary);
+  background: var(--ink);
   color: #fff;
+  border-color: var(--ink);
 }
 
-/* Location tags — orange with pin icon */
+/* Location chips */
 .post-tags a[href*="/locations/"],
 .terms-tags a[href*="/locations/"] {
-  background: #fff3e8;
-  color: var(--color-accent);
-  border-color: #f5d9b8;
+  color: var(--red);
+  border-color: #e8b8b4;
+  background: #fdf5f4;
 }
 .post-tags a[href*="/locations/"]:hover,
 .terms-tags a[href*="/locations/"]:hover {
-  background: var(--color-accent);
+  background: var(--red);
   color: #fff;
+  border-color: var(--red);
 }
+
 .post-tags a[href*="/locations/"]::before,
 .terms-tags a[href*="/locations/"]::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f3c5"; /* fa-location-dot */
-  margin-right: 5px;
-  font-size: 0.75em;
+  content: "\f3c5";
+  font-size: 0.7em;
 }
 
-/* Regular tags get a tag icon */
 .post-tags a:not([href*="/locations/"])::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f02b"; /* fa-tag */
-  margin-right: 5px;
-  font-size: 0.75em;
+  content: "\f02b";
+  font-size: 0.7em;
 }
 
-/* --- Reading time & meta icons --- */
-.post-meta span::before,
-.meta-item::before {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 400;
-  margin-right: 4px;
-  font-size: 0.85em;
-  color: var(--color-muted);
+/* ── Single post ────────────────────────────────────────────── */
+article.post-single {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 2rem 20px;
 }
 
-/* --- Single post page --- */
+.post-header {
+  border-bottom: 1px solid var(--sand);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
 .post-title {
-  font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(1.8rem, 5vw, 2.6rem);
+  font-weight: 400;
   line-height: 1.2;
-  color: var(--color-text);
-}
-
-.post-meta {
-  font-size: 0.85rem;
-  color: var(--color-muted);
+  letter-spacing: -0.5px;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
 }
 
 article.post-single .post-content {
   font-size: 1.05rem;
-  line-height: 1.8;
+  line-height: 1.85;
+  font-weight: 300;
 }
 
-article.post-single .post-content h2,
+article.post-single .post-content > p:first-child {
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+article.post-single .post-content h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--ink);
+  margin-top: 2.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--sand);
+}
+
 article.post-single .post-content h3 {
-  font-family: var(--font-heading);
-  color: var(--color-primary);
-  margin-top: 2rem;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--ink);
 }
 
 article.post-single .post-content img {
   border-radius: var(--radius);
   max-width: 100%;
+  display: block;
+  margin: 1.5rem auto;
 }
 
-/* --- Taxonomy pages (locations, tags) --- */
+article.post-single .post-content a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+article.post-single .post-content blockquote {
+  border-left: 3px solid var(--red);
+  margin: 1.5rem 0;
+  padding: 0.25rem 0 0.25rem 1.2rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+article.post-single .post-content hr {
+  border: none;
+  border-top: 1px solid var(--sand);
+  margin: 2.5rem 0;
+}
+
+/* Post nav (prev/next) */
+.post-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--sand);
+}
+.post-nav a {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  transition: color 0.15s;
+}
+.post-nav a:hover { color: var(--red); }
+
+/* ── Taxonomy pages ─────────────────────────────────────────── */
 .terms-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
   padding: 0;
   list-style: none;
+  margin-top: 1rem;
 }
+
 .terms-tags li a {
-  font-size: 1rem;
-  padding: 8px 18px;
-  border-radius: 24px;
+  font-size: 0.85rem;
+  padding: 6px 16px;
+  border-radius: 6px;
 }
 
-/* --- Footer --- */
+/* ── Footer ─────────────────────────────────────────────────── */
 footer.footer {
+  max-width: var(--max-w);
+  margin: 4rem auto 0;
+  padding: 1.5rem 20px;
+  border-top: 1px solid var(--sand);
   text-align: center;
-  font-size: 0.82rem;
-  color: var(--color-muted);
-  padding: 2rem 0;
-  border-top: 1px solid var(--color-border);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  letter-spacing: 0.04em;
 }
 
-/* ============================================================
-   Mobile-first tweaks (phones up to 640px)
-   ============================================================ */
+/* ── Divider between posts ──────────────────────────────────── */
+.post-entry + .post-entry {
+  border-top: none;
+}
+
+/* ── Mobile ─────────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  body {
-    font-size: 16px;
-  }
-  .post-entry {
-    margin-bottom: 1rem;
-    border-radius: 10px;
-  }
-  .entry-header h2 {
-    font-size: 1.1rem;
-  }
-  .home-info-content {
-    padding: 1.25rem 1rem;
-  }
+  body { font-size: 16px; }
+
+  .home-info-content { padding: 2.5rem 0 2rem; }
+
   .home-info-content .entry-content h1 {
-    font-size: 1.4rem;
+    font-size: 2rem;
   }
-  .post-tags a,
-  .terms-tags a {
-    padding: 5px 14px;
-    font-size: 0.85rem;
-  }
+
+  .post-entry { padding: 1.2rem 0; }
+
+  .post-entry .entry-header h2 { font-size: 1.1rem; }
+
   nav#menu a {
-    font-size: 0.85rem;
-    padding: 5px 8px;
+    font-size: 0.75rem;
+    padding: 5px 7px;
+  }
+
+  /* hide text labels on very small screens, keep icons */
+  @media (max-width: 380px) {
+    nav#menu a { font-size: 0; gap: 0; padding: 8px; }
+    nav#menu a::before { font-size: 1rem !important; }
   }
 }
