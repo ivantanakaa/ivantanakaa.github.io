@@ -6,14 +6,20 @@
 
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
-  --bg:        #141414;
-  --surface:   #1e1e1e;
-  --ink:       #e8e4de;
-  --ink-soft:  #9a9488;
-  --ink-faint: #554f47;
-  --red:       #e05c4b;
-  --sand:      #2a2520;
-  --sand-dark: #342e27;
+  /* Tanaka palette */
+  --black:     #1a1510;   /* deep warm black */
+  --miso:      #c8a96e;   /* miso — golden brown */
+  --orange:    #e8621a;   /* burnt orange */
+  --cream:     #f5efe4;   /* warm cream */
+
+  --bg:        var(--black);
+  --surface:   #241e17;   /* slightly lighter black */
+  --ink:       var(--cream);
+  --ink-soft:  #a89070;   /* cream faded toward miso */
+  --ink-faint: #4a3e2e;   /* dark miso */
+  --red:       var(--orange);
+  --sand:      #2e2418;   /* dark miso border */
+  --sand-dark: #3a2e1e;
   --radius:    10px;
   --max-w:     680px;
   --font-head: 'Unbounded', sans-serif;
