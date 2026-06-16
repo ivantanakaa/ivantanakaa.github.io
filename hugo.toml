@@ -23,9 +23,6 @@ theme = "PaperMod"
   Title = "Tanaka's Diary"
   Content = "Not a review. Just how it felt in that moment."
 
-[[params.socialIcons]]
-  name = "github"
-  url = "https://github.com/ivantanaka"
 
 [taxonomies]
   tag = "tags"
