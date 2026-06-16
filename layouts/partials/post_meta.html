@@ -10,12 +10,12 @@
 {{- with .Params.rating -}}
   {{- $score := int . -}}
   {{- $labels := dict
-    1 "Not recommended"
-    2 "Once in a while"
-    3 "Worth trying"
-    4 "Approved & loved"
+    "1" "Not recommended"
+    "2" "Once in a while"
+    "3" "Worth trying"
+    "4" "Approved & loved"
   -}}
-  {{- $label := index $labels $score -}}
+  {{- $label := index $labels (string $score) -}}
   <span class="post-meta-rating" title="{{ $label }}">
     {{- range seq 4 -}}
       <span class="dot{{ if le . $score }} filled{{ end }}"></span>

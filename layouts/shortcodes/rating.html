@@ -1,11 +1,11 @@
 {{- $score := int (.Get 0) -}}
 {{- $labels := dict
-  1 "Not recommended"
-  2 "Once in a while"
-  3 "Worth trying"
-  4 "Approved & loved"
+  "1" "Not recommended"
+  "2" "Once in a while"
+  "3" "Worth trying"
+  "4" "Approved & loved"
 -}}
-{{- $label := index $labels $score -}}
+{{- $label := index $labels (string $score) -}}
 <div class="tanaka-rating" data-score="{{ $score }}">
   <div class="rating-dots">
     {{- range seq 4 -}}
