@@ -1,8 +1,8 @@
 /* ============================================================
-   Tanaka's Diary — Casual Modern Minimalist
+   Tanaka's Diary — Moody & Literary
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
 
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
@@ -14,10 +14,10 @@
   --red:       #e05c4b;
   --sand:      #2a2520;
   --sand-dark: #342e27;
-  --accent:    #e8e4de;
-  --loc:       #e05c4b;
   --radius:    10px;
   --max-w:     680px;
+  --font-head: 'Fraunces', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
 }
 
 /* ── Reset & Base ───────────────────────────────────────────── */
@@ -26,10 +26,9 @@
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: 'DM Sans', system-ui, sans-serif;
-  font-weight: 300;
+  font-family: var(--font-body);
   font-size: 17px;
-  line-height: 1.75;
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -61,8 +60,9 @@ header.header > div {
 
 /* Logo */
 .logo a {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: var(--font-head);
   font-size: 1.2rem;
+  font-weight: 600;
   color: var(--ink);
   letter-spacing: -0.3px;
   display: flex;
@@ -86,9 +86,10 @@ nav#menu {
 }
 
 nav#menu a {
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.03em;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--ink-soft);
   padding: 5px 10px;
@@ -131,12 +132,14 @@ nav#menu a[href="/about/"]::before {
 }
 
 .home-info-content .entry-content h1 {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-size: clamp(2.2rem, 6vw, 3.2rem);
-  line-height: 1.15;
+  font-family: var(--font-head);
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.1;
   color: var(--ink);
-  margin: 0 0 0.6rem;
-  letter-spacing: -1px;
+  margin: 0 0 0.75rem;
+  letter-spacing: -1.5px;
 }
 
 .home-info-content .entry-content h1::before {
@@ -144,44 +147,30 @@ nav#menu a[href="/about/"]::before {
   font-weight: 900;
   content: "\f518";
   margin-right: 12px;
-  font-size: 0.7em;
+  font-size: 0.6em;
   color: var(--red);
   vertical-align: middle;
+  font-style: normal;
 }
 
 .home-info-content .entry-content p {
+  font-family: var(--font-body);
   font-size: 1rem;
   color: var(--ink-soft);
   margin: 0;
-  font-weight: 300;
   font-style: italic;
 }
 
 /* ── Post list ──────────────────────────────────────────────── */
-
-/* Section header above list */
-.posts-list-header {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--sand);
-}
-
 .post-entry {
   background: transparent;
   border: none;
   box-shadow: none;
   border-bottom: 1px solid var(--sand);
   border-radius: 0;
-  padding: 1.6rem 0;
+  padding: 1.75rem 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  transition: background 0.15s;
+  transition: none;
 }
 .post-entry:hover {
   background: transparent;
@@ -192,7 +181,6 @@ nav#menu a[href="/about/"]::before {
   color: var(--red);
 }
 
-/* Date as tiny label */
 .entry-header {
   display: flex;
   flex-direction: column;
@@ -200,40 +188,42 @@ nav#menu a[href="/about/"]::before {
 }
 
 .post-entry .entry-header h2 {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 400;
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-style: italic;
   color: var(--ink);
   margin: 0;
-  line-height: 1.3;
+  line-height: 1.25;
   transition: color 0.15s;
 }
 
 .entry-content {
+  font-family: var(--font-body);
   font-size: 0.92rem;
   color: var(--ink-soft);
-  font-weight: 300;
-  margin-top: 4px;
+  margin-top: 6px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-style: italic;
 }
 
 .entry-footer {
-  margin-top: 10px;
+  margin-top: 12px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
 }
 
-/* Post meta (date, read time) */
 .post-meta,
 .entry-footer .post-meta {
-  font-size: 0.75rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
   color: var(--ink-faint);
-  font-weight: 400;
+  letter-spacing: 0.04em;
 }
 
 /* ── Tags & Location chips ──────────────────────────────────── */
@@ -247,17 +237,19 @@ nav#menu a[href="/about/"]::before {
   border: 1px solid var(--sand-dark);
   border-radius: 4px;
   padding: 2px 9px;
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
+  font-style: normal;
   text-decoration: none;
   transition: all 0.15s;
 }
 .post-tags a:hover,
 .terms-tags a:hover {
   background: var(--ink);
-  color: #fff;
+  color: var(--bg);
   border-color: var(--ink);
 }
 
@@ -265,8 +257,8 @@ nav#menu a[href="/about/"]::before {
 .post-tags a[href*="/locations/"],
 .terms-tags a[href*="/locations/"] {
   color: var(--red);
-  border-color: #e8b8b4;
-  background: #fdf5f4;
+  border-color: #5a2820;
+  background: transparent;
 }
 .post-tags a[href*="/locations/"]:hover,
 .terms-tags a[href*="/locations/"]:hover {
@@ -274,7 +266,6 @@ nav#menu a[href="/about/"]::before {
   color: #fff;
   border-color: var(--red);
 }
-
 .post-tags a[href*="/locations/"]::before,
 .terms-tags a[href*="/locations/"]::before {
   font-family: "Font Awesome 6 Free";
@@ -282,7 +273,6 @@ nav#menu a[href="/about/"]::before {
   content: "\f3c5";
   font-size: 0.7em;
 }
-
 .post-tags a:not([href*="/locations/"])::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
@@ -304,31 +294,33 @@ article.post-single {
 }
 
 .post-title {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-size: clamp(1.8rem, 5vw, 2.6rem);
-  font-weight: 400;
-  line-height: 1.2;
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 600;
+  font-style: italic;
+  line-height: 1.15;
   letter-spacing: -0.5px;
   color: var(--ink);
   margin-bottom: 0.75rem;
 }
 
 article.post-single .post-content {
+  font-family: var(--font-body);
   font-size: 1.05rem;
-  line-height: 1.85;
-  font-weight: 300;
+  line-height: 1.9;
 }
 
 article.post-single .post-content > p:first-child {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--ink-soft);
   font-style: italic;
 }
 
 article.post-single .post-content h2 {
-  font-family: 'DM Serif Display', Georgia, serif;
+  font-family: var(--font-head);
   font-size: 1.4rem;
-  font-weight: 400;
+  font-weight: 600;
+  font-style: italic;
   color: var(--ink);
   margin-top: 2.5rem;
   margin-bottom: 0.5rem;
@@ -337,8 +329,9 @@ article.post-single .post-content h2 {
 }
 
 article.post-single .post-content h3 {
-  font-family: 'DM Serif Display', Georgia, serif;
-  font-weight: 400;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-style: italic;
   font-size: 1.1rem;
   color: var(--ink);
 }
@@ -357,9 +350,9 @@ article.post-single .post-content a {
 }
 
 article.post-single .post-content blockquote {
-  border-left: 3px solid var(--red);
+  border-left: 2px solid var(--red);
   margin: 1.5rem 0;
-  padding: 0.25rem 0 0.25rem 1.2rem;
+  padding: 0.25rem 0 0.25rem 1.4rem;
   color: var(--ink-soft);
   font-style: italic;
 }
@@ -370,22 +363,6 @@ article.post-single .post-content hr {
   margin: 2.5rem 0;
 }
 
-/* Post nav (prev/next) */
-.post-nav {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 3rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--sand);
-}
-.post-nav a {
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  transition: color 0.15s;
-}
-.post-nav a:hover { color: var(--red); }
-
 /* ── Taxonomy pages ─────────────────────────────────────────── */
 .terms-tags {
   display: flex;
@@ -395,9 +372,8 @@ article.post-single .post-content hr {
   list-style: none;
   margin-top: 1rem;
 }
-
 .terms-tags li a {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   padding: 6px 16px;
   border-radius: 6px;
 }
@@ -409,14 +385,11 @@ footer.footer {
   padding: 1.5rem 20px;
   border-top: 1px solid var(--sand);
   text-align: center;
-  font-size: 0.78rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
   color: var(--ink-faint);
   letter-spacing: 0.04em;
-}
-
-/* ── Divider between posts ──────────────────────────────────── */
-.post-entry + .post-entry {
-  border-top: none;
+  font-style: italic;
 }
 
 /* ── Mobile ─────────────────────────────────────────────────── */
@@ -424,21 +397,16 @@ footer.footer {
   body { font-size: 16px; }
 
   .home-info-content { padding: 2.5rem 0 2rem; }
+  .home-info-content .entry-content h1 { font-size: 2.2rem; }
 
-  .home-info-content .entry-content h1 {
-    font-size: 2rem;
-  }
-
-  .post-entry { padding: 1.2rem 0; }
-
-  .post-entry .entry-header h2 { font-size: 1.1rem; }
+  .post-entry { padding: 1.25rem 0; }
+  .post-entry .entry-header h2 { font-size: 1.15rem; }
 
   nav#menu a {
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     padding: 5px 7px;
   }
 
-  /* hide text labels on very small screens, keep icons */
   @media (max-width: 380px) {
     nav#menu a { font-size: 0; gap: 0; padding: 8px; }
     nav#menu a::before { font-size: 1rem !important; }
