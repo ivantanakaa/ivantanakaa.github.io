@@ -12,7 +12,7 @@ theme = "PaperMod"
   ShowCodeCopyButtons = false
   ShowShareButtons = false
   ShowToc = false
-  defaultTheme = "dark"
+  defaultTheme = "light"
   disableThemeToggle = true
 
   # Cover image settings — shows hero image on post cards
