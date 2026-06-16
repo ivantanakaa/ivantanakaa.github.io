@@ -6,16 +6,16 @@
 
 /* ── Variables ─────────────────────────────────────────────── */
 :root {
-  --bg:        #f7f6f3;
-  --surface:   #ffffff;
-  --ink:       #1a1a1a;
-  --ink-soft:  #666;
-  --ink-faint: #aaa;
-  --red:       #c0392b;
-  --sand:      #e8e0d4;
-  --sand-dark: #d4c9b8;
-  --accent:    #1a1a1a;   /* dark accent for chips */
-  --loc:       #c0392b;   /* location red */
+  --bg:        #141414;
+  --surface:   #1e1e1e;
+  --ink:       #e8e4de;
+  --ink-soft:  #9a9488;
+  --ink-faint: #554f47;
+  --red:       #e05c4b;
+  --sand:      #2a2520;
+  --sand-dark: #342e27;
+  --accent:    #e8e4de;
+  --loc:       #e05c4b;
   --radius:    10px;
   --max-w:     680px;
 }
