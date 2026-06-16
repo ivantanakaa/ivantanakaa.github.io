@@ -1,0 +1,40 @@
+baseURL = "https://ivantanaka.github.io/"
+languageCode = "en-us"
+title = "Tanaka's Table"
+theme = "PaperMod"
+
+[params]
+  author = "Tanaka"
+  description = "A gourmet that make a smile"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowShareButtons = false
+
+[params.homeInfoParams]
+  Title = "Hi, I'm Tanaka 👋"
+  Content = "A gourmet that make a smile. Welcome to my little corner of the internet."
+
+[[params.socialIcons]]
+  name = "github"
+  url = "https://github.com/ivantanaka"
+
+[permalinks]
+  [permalinks.posts]
+    posts = "/posts/:year/:month/:slug/"
+
+[menu]
+  [[menu.main]]
+    identifier = "posts"
+    name = "Posts"
+    url = "/posts/"
+    weight = 10
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 20
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
