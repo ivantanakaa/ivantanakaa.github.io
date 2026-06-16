@@ -52,11 +52,11 @@ header.header {
   letter-spacing: -0.5px;
 }
 
-/* Site title icon — fork & knife */
+/* Site title icon — open book / diary */
 .logo a::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f2e7"; /* fa-utensils */
+  content: "\f518"; /* fa-book-open */
   margin-right: 8px;
   color: var(--color-primary);
 }
@@ -123,7 +123,7 @@ nav#menu a[href="/about/"]::before {
 .home-info-content .entry-content h1::before {
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: "\f2e7"; /* fa-utensils */
+  content: "\f518"; /* fa-book-open */
   margin-right: 10px;
   color: var(--color-accent);
 }

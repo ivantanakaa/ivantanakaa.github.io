@@ -1,6 +1,6 @@
 baseURL = "https://ivantanaka.github.io/"
 languageCode = "en-us"
-title = "Tanaka's Table"
+title = "Tanaka's Diary"
 theme = "PaperMod"
 
 [params]
@@ -20,8 +20,8 @@ theme = "PaperMod"
   cover.responsiveImages = true
 
 [params.homeInfoParams]
-  Title = "Tanaka's Table"
-  Content = "A gourmet that make a smile. Find your next favorite meal."
+  Title = "Tanaka's Diary"
+  Content = "Not a review. Just how it felt in that moment."
 
 [[params.socialIcons]]
   name = "github"
