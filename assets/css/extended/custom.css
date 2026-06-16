@@ -1,0 +1,244 @@
+/* ============================================================
+   Tanaka's Table — Custom Styles
+   Warm, food-blog feel, mobile-first
+   ============================================================ */
+
+/* --- Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@400;500&display=swap');
+
+:root {
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Lato', system-ui, sans-serif;
+
+  /* Warm palette */
+  --color-bg: #fffdf8;
+  --color-surface: #ffffff;
+  --color-primary: #c0392b;      /* deep red — appetite-stimulating */
+  --color-primary-soft: #e8554e;
+  --color-accent: #e67e22;       /* warm orange */
+  --color-text: #2c2c2c;
+  --color-muted: #888;
+  --color-border: #f0ebe2;
+  --radius: 12px;
+  --shadow: 0 2px 16px rgba(0,0,0,0.07);
+  --shadow-hover: 0 6px 28px rgba(0,0,0,0.13);
+}
+
+/* --- Base --- */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- Header / Nav --- */
+header.header {
+  background: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo a,
+.logo span {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+}
+
+nav#menu a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+nav#menu a:hover {
+  background: var(--color-border);
+  color: var(--color-primary);
+}
+
+/* --- Home info panel --- */
+.home-info-content {
+  background: linear-gradient(135deg, #fff5f0 0%, #fff9f0 100%);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.home-info-content .entry-content h1,
+.home-info-content .entry-content p {
+  margin: 0.25rem 0;
+}
+.home-info-content .entry-content h1 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--color-primary);
+}
+
+/* --- Post cards --- */
+.post-entry {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+.post-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Cover image */
+.post-entry .entry-cover img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.entry-header h2 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin: 0 0 0.25rem;
+}
+
+.entry-content {
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+
+.entry-footer {
+  font-size: 0.8rem;
+  color: var(--color-muted);
+  margin-top: 0.5rem;
+}
+
+/* --- Tags & Location chips --- */
+.post-tags a,
+.terms-tags a {
+  display: inline-block;
+  background: #fdf0ee;
+  color: var(--color-primary);
+  border: 1px solid #f5cec8;
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin: 3px 3px 0 0;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.post-tags a:hover,
+.terms-tags a:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Location tags get a slightly different color */
+.post-tags a[href*="/locations/"] {
+  background: #fff3e8;
+  color: var(--color-accent);
+  border-color: #f5d9b8;
+}
+.post-tags a[href*="/locations/"]:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* --- Single post page --- */
+.post-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 5vw, 2.4rem);
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+}
+
+article.post-single .post-content {
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+article.post-single .post-content h2,
+article.post-single .post-content h3 {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  margin-top: 2rem;
+}
+
+article.post-single .post-content img {
+  border-radius: var(--radius);
+  max-width: 100%;
+}
+
+/* --- Taxonomy pages (locations, tags) --- */
+.terms-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+.terms-tags li a {
+  font-size: 1rem;
+  padding: 8px 18px;
+  border-radius: 24px;
+}
+
+/* --- Footer --- */
+footer.footer {
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  padding: 2rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ============================================================
+   Mobile-first tweaks (phones up to 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+  body {
+    font-size: 16px;
+  }
+  .post-entry {
+    margin-bottom: 1rem;
+    border-radius: 10px;
+  }
+  .entry-header h2 {
+    font-size: 1.1rem;
+  }
+  .home-info-content {
+    padding: 1.25rem 1rem;
+  }
+  .home-info-content .entry-content h1 {
+    font-size: 1.4rem;
+  }
+  /* Bigger tap targets for tags on mobile */
+  .post-tags a,
+  .terms-tags a {
+    padding: 5px 14px;
+    font-size: 0.85rem;
+  }
+  nav#menu a {
+    font-size: 0.85rem;
+    padding: 5px 8px;
+  }
+}

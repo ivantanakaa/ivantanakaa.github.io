@@ -9,19 +9,30 @@ theme = "PaperMod"
   ShowReadingTime = true
   ShowPostNavLinks = true
   ShowBreadCrumbs = true
-  ShowCodeCopyButtons = true
+  ShowCodeCopyButtons = false
   ShowShareButtons = false
+  ShowToc = false
+  defaultTheme = "light"
+  disableThemeToggle = true
+
+  # Cover image settings — shows hero image on post cards
+  cover.linkFullImages = true
+  cover.responsiveImages = true
 
 [params.homeInfoParams]
-  Title = "Hi, I'm Tanaka 👋"
-  Content = "A gourmet that make a smile. Welcome to my little corner of the internet."
+  Title = "🍽️ Tanaka's Table"
+  Content = "A gourmet that make a smile. Find your next favorite meal."
 
 [[params.socialIcons]]
   name = "github"
   url = "https://github.com/ivantanaka"
 
+[taxonomies]
+  tag = "tags"
+  location = "locations"
+
 [permalinks]
-  [permalinks.posts]
+  [permalinks.page]
     posts = "/posts/:year/:month/:slug/"
 
 [menu]
@@ -31,10 +42,15 @@ theme = "PaperMod"
     url = "/posts/"
     weight = 10
   [[menu.main]]
+    identifier = "locations"
+    name = "📍 By Location"
+    url = "/locations/"
+    weight = 20
+  [[menu.main]]
     identifier = "about"
     name = "About"
     url = "/about/"
-    weight = 20
+    weight = 30
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
